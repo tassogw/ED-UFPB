@@ -8,7 +8,7 @@ public class ArraySeq {
 
     //Construtor (Lista vazia)
     public ArraySeq(){
-        tamMax = 100;
+        tamMax = 10;
         tamAtual = 0;
         dados = new int[tamMax];
     }
@@ -55,17 +55,17 @@ public class ArraySeq {
     }
 
     //Alterar um elemento dada a posição
-    public boolean setElemento(int pos, int valor){
+    public int setElemento(int pos, int valor){
         //Verificar a validade da posição
         if (pos < 1 || pos > tamMax){
             //Inválida (código de erro)
-            return false;
+            return -1;
         }
 
-        //Modificando o dado (+ código de retorno normal)
-        //int aux = dados[pos -1];
+        //Modificando o dado (+ retorna o valor modificado)
+        int aux = dados[pos -1];
         dados[pos - 1] = valor;
-        return true;
+        return aux;
     }
 
     //Insere um elemento dada a posição
@@ -111,5 +111,18 @@ public class ArraySeq {
 
         tamAtual--;
         return dado;
+    }
+
+    public void mostraLista(){
+        if (!vazia()) {
+            //Exibindo a lista (não está vazia)
+            System.out.println("------");
+            for (int i = 0; i < tamAtual; i++) {
+                System.out.printf("%d%n", dados[i]);
+            }
+            System.out.println("------");
+        } else {
+            System.out.println("A lista está vazia");
+        }
     }
 }
