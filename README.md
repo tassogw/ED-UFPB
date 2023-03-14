@@ -3,4 +3,4 @@
 
 ## Exercícios
 ### Listas e estruturas dinâmicas
-* Lista estática: [Link](src/exArrayList/MainArraySeq.java)
+* [Lista estática](src/exArrayList/MainArraySeq.java)
