@@ -134,14 +134,14 @@ public class ListaEncad {
     }
 
     public int retiraInicio(){
-        /*Muda o elemento cabeca, passando a ser o
-        segundo elemento da lista*/
+        /*Cria um auxiliar com o valor de cabeca e armazena seu conteúdo*/
         NoInt aux = cabeca;
         int dado = aux.getConteudo();
 
+        /*Cabeca agora tem o valor do próximo elemento da lista, o tamanho
+        é diminuído e aux é deletado */
         cabeca = aux.getProx();
         tamanho--;
-
         aux = null;
         return dado;
     }
@@ -164,6 +164,7 @@ public class ListaEncad {
             count++;
         }
 
+        //Busca falhou
         if (aux == null){return -1;}
 
         //Retirar o elemento  (aux)
@@ -179,12 +180,28 @@ public class ListaEncad {
     public int retira(int pos){
         if(vazia()) {return -1;}
 
-        if (pos == 1) {
+        if (pos == 1) { //Retira o primeiro elemento
             return retiraInicio();
-        } else {
+        } else { //Retira um elemento no meio da lista
             return retiraMeio(pos);
         }
     }
 
-    //Método de imprimir a lista
+    public void mostra(){
+        NoInt aux = cabeca;
+        String dash = "--------";
+        System.out.println(dash);
+
+        //Verificando se a lista é vazia
+        if(vazia()){
+            System.out.println("A lista está vazia");
+        } else {
+            while (aux != null) {
+                //Imprime o atual valor e o atualiza
+                System.out.println(aux.getConteudo());
+                aux = aux.getProx();
+            }
+            System.out.println(dash);
+        }
+    }
 }
