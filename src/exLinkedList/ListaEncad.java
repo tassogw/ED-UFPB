@@ -67,13 +67,19 @@ public class ListaEncad {
     }
 
     public boolean insereComeco(int valor){
+        /*Se a lista estiver vazia, simplesmente mudar o
+        valor de cabeca*/
+        if (vazia()) {
+            cabeca.setConteudo(valor);
+        } else { //A lista contém pelo menos um elemento
         /*Criar um novo nó que apontará para onde cabeca aponta,
         após isso, fazer com que cabeca aponte para esse nó*/
-        NoInt novo = new NoInt(valor);
-        novo.setProx(cabeca.getProx());
-        cabeca.setProx(novo);
-        tamanho++;
+            NoInt novo = new NoInt(valor);
+            novo.setProx(cabeca);
+            cabeca = novo;
+        }
 
+        tamanho++;
         return true;
     }
 
@@ -126,7 +132,7 @@ public class ListaEncad {
     public void insere(int valor, int pos){
         if (pos == 1){ //Inserir no começo
             insereComeco(valor);
-        } else if (pos == tamanho + 1){ //Insere no fim da lista
+        } else if ((pos == tamanho + 1)&&(!vazia())){ //Insere no fim da lista
             insereFim(valor);
         } else { //Insere no meio da lista
             insereMeio(valor, pos);
@@ -190,12 +196,12 @@ public class ListaEncad {
     public void mostra(){
         NoInt aux = cabeca;
         String dash = "--------";
-        System.out.println(dash);
 
         //Verificando se a lista é vazia
         if(vazia()){
             System.out.println("A lista está vazia");
         } else {
+            System.out.println(dash);
             while (aux != null) {
                 //Imprime o atual valor e o atualiza
                 System.out.println(aux.getConteudo());
