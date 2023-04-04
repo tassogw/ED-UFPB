@@ -5,4 +5,4 @@
 ### Listas e estruturas dinâmicas
 * [Lista estática](src/exArrayList)
 * [Lista simplesmente encadeada](src/exLinkedList)
-* [Pilha encadeada](src/exPilhaEncad)  
+* [Pilha encadeada](src/exPilha)  
