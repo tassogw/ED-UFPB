@@ -15,14 +15,26 @@ public class ArrayAdj {
 
     /** Métodos **/
     //Cria o elemento Adj[u] na posição "pos" do array
-    public void setVertice(int pos, char u){
-        listas[pos] = new ListaAdj(u);
+    /** Posição 1 = Elemento 0 do array **/
+    public boolean setVertice(int pos, char u){
+        if (pos < 1 || pos > listas.length){
+            //Posição inválida
+            return false;
+        }
+        listas[pos - 1] = new ListaAdj(u);
+        return true;
     }
 
     //Adiciona um elemento v na lista encadeada do vértice u
-    public void adcAdjacente(int pos, char v){
-        listas[pos].insereAdj(v);
+    /** Posição 1 = Elemento 0 do array **/
+    public boolean adcAdjacente(int pos, char v){
+        if (pos < 1 || pos > listas.length){
+            //Posição inválida
+            return false;
+        }
+        listas[pos - 1].insereAdj(v);
+        return true;
     }
 
-    //
+
 }

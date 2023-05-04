@@ -9,10 +9,10 @@ public class ListaAdj {
     public ListaAdj(char c){
         //this.vertInfo = c;
         cabeca = new Vertice(c);
-        //tamanho = 0;
+        tamanho = 0;
     }
 
-    //Métodos
+    /** Métodos **/
     /*
     public char getVertInfo() {
         return vertInfo;
@@ -43,6 +43,7 @@ public class ListaAdj {
         return true;
     }
 
+    //Busca se há um adjacente v (info) de u
     public boolean buscaAdj(char info){
         if(vazia()){ return false; }
         Vertice aux = cabeca;
