@@ -4,11 +4,18 @@ public class Aresta {
     private char info;
     private Vertice ponta1, ponta2;
 
-    /** Construtor **/
+    /** Construtores **/
     public Aresta(char c){
         info = c;
         ponta1 = null;
         ponta2 = null;
+    }
+
+    //Cria uma aresta que conecta os vértices u e v
+    public Aresta(char c, Vertice u, Vertice v){
+        info = c;
+        ponta1 = u;
+        ponta2 = v;
     }
 
     /** Métodos **/
@@ -22,12 +29,6 @@ public class Aresta {
 
     public Vertice getPonta2() {
         return ponta2;
-    }
-
-    //Cria uma aresta que conecta os vértices u e v
-    public void conecta(Vertice u, Vertice v){
-        ponta1 = u;
-        ponta2 = v;
     }
 
     //Checa se as pontas são os vértices u e v em qualquer ordem (Não ordenado)
