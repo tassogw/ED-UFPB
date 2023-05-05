@@ -19,17 +19,14 @@ public class MatrizAdj {
     }
 
     /** Métodos **/
-    //Mantém a simetria da matriz em relação ao elemento Aij
-    public void simetria(int i, int j){
+    //Define uma aresta e altera os elementos Aij e Aji
+    public void conecta(int i, int j, char c, Vertice u, Vertice v){
+        //Define os elementos de Aij
+        M[i][j].setAresta(c, u, v);
         //Verifica se o elemento simétrico é nulo e não é um auto-loop
         if(!M[j][i].isExistente() && i != j){
-            //Pega as informações da aresta de Aij
-            char c = M[i][j].getAresta().getInfo();
-            Vertice origem = M[i][j].getAresta().getPonta1();
-            Vertice fim = M[i][j].getAresta().getPonta2();
-
-            //Copia as informações da aresta na ordem inversa de vértices
-            M[j][i].setAresta(c, fim, origem);
+            //Define os elementos de Aji
+            M[j][i].setAresta(c, v, u);
         }
     }
 

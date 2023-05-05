@@ -46,6 +46,9 @@ public class MainGrafo {
         * d  0 1 0 0
         * } */
 
-        //
+        //Define os elementos da matriz + seus simétricos
+        matriz.conecta(0, 1, 'e', vA, vB);
+        matriz.conecta(1, 2, 'f', vB, vC);
+        matriz.conecta(1, 3, 'g', vB, vD);
     }
 }
