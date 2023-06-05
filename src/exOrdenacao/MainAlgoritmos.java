@@ -23,10 +23,15 @@ public class MainAlgoritmos {
         //Exibir o vetor
         System.out.println("Vetor original:");
         showVector(array);
+
+        //Iniciar todas as threads de algoritmos
+        for (int i = 1; i <= 5; i++) {
+            new Algoritmos(i, array).run();
+        }
     }
 
     public static void showVector(int[] array){
-        System.out.print("[ ");
+        System.out.print("[");
         for (int i = 0; i < array.length; i++) {
             if (i < array.length - 1){
                 System.out.printf("%d, ", array[i]);
