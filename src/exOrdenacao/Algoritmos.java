@@ -191,26 +191,24 @@ public class Algoritmos implements Runnable{
     public int partition(long[] array, int start, int end){
         long x = array[start], aux;
         int a = start + 1, b = end;
-        while (true){
-            while (array[b] > x){
-                b--;
-            }
-            while (array[a] < x){
-                a++;
-            }
-            if(a <= b){
-                //swap(a,b)
-                aux = array[a];
-                array[a] = array[b];
-                array[b] = aux;
-            } else {
-                //swap(p, b)
-                aux = array[start];
-                array[start] = array[b];
-                array[b] = aux;
-            }
-            return b;
+        while (array[b] > x){
+            b--;
         }
+        while (array[a] < x){
+            a++;
+        }
+        if(a <= b){
+            //swap(a,b)
+            aux = array[a];
+            array[a] = array[b];
+            array[b] = aux;
+        } else {
+            //swap(p, b)
+            aux = array[start];
+            array[start] = array[b];
+            array[b] = aux;
+        }
+        return b;
     }
 
 }
