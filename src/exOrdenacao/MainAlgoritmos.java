@@ -1,23 +1,19 @@
 package src.exOrdenacao;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class MainAlgoritmos {
 
-    public static void main(String[] args) {
-        int[] array;
-        int size;
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File("src/files/instanciasSorting/inst100000_1.txt"));
 
-        //Pedir o tamanho do vetor
-        System.out.print("Insira o tamanho do vetor: ");
-        size = sc.nextInt();
-        array = new int[size];
-
-        //Colocar os elementos do vetor
-        for (int i = 0; i < size; i++) {
-            System.out.printf("Insira o elemento %d/%d do vetor: ", i + 1, size);
-            array[i] = sc.nextInt();
+        int size = sc.nextInt();
+        long[] array = new long[size];
+        int i = 0;
+        while (sc.hasNextLong()){
+            array[i++] = sc.nextLong();
         }
 
         //Exibir o vetor
@@ -25,20 +21,21 @@ public class MainAlgoritmos {
         showVector(array);
 
         //Iniciar todas as threads de algoritmos
-        for (int i = 1; i <= 5; i++) {
-            new Algoritmos(i, array).run();
+        for (int j = 1; j <= 5; j++) {
+            new Algoritmos(j, array).run();
         }
     }
 
-    public static void showVector(int[] array){
+    public static void showVector(long[] array){
         System.out.print("[");
         for (int i = 0; i < array.length; i++) {
             if (i < array.length - 1){
-                System.out.printf("%d, ", array[i]);
+                System.out.print(array[i] + ", ");
             } else {
-                System.out.printf("%d]\n", array[i]);
+                System.out.print(array[i] + "]\n");
             }
         }
+        System.out.println();
     }
 
 }
